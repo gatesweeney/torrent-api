@@ -1,5 +1,5 @@
 const search = require('./api/search');
-const magnet = require('./magnet/magnet');
+const magnet = require('./seedbox/magnet');
 
 
 
@@ -32,12 +32,12 @@ const server = http.createServer( async (req, res) => {
 */
 
 app.get('/api/', async (req, res) => {
-  console.log(req);
+  //console.log(req);
   res.send(await search.torrent(req.url))
 })
 
-app.post('/magnet/', jsonParser, async (req, res) => {
-  console.log(req);
+app.post('/seedbox/', jsonParser, async (req, res) => {
+  //console.log(req);
   res.send(await magnet.getMagnets(req.body))
 })
 
