@@ -1,7 +1,21 @@
 const search = require('./api/search');
+const magnet = require('./magnet/magnet');
+
+
 
 const express = require('express')
+var bodyParser = require('body-parser')
+  
+// create application/json parser
+var jsonParser = bodyParser.json()
+
+
 const app = express()
+
+const cors = require('cors');
+app.use(cors({
+    origin: '*'
+}));
 
 
 //const http = require('http');
@@ -18,7 +32,17 @@ const server = http.createServer( async (req, res) => {
 */
 
 app.get('/api/', async (req, res) => {
+  console.log(req);
   res.send(await search.torrent(req.url))
+})
+
+app.post('/magnet/', jsonParser, async (req, res) => {
+  console.log(req);
+  res.send(await magnet.getMagnets(req.body))
+})
+
+app.get('/poop/', async (req, res) => {
+  res.send('poop')
 })
 
 

@@ -6,6 +6,7 @@ TorrentSearchApi.enablePublicProviders();
 TorrentSearchApi.disableProvider('Torrent9');
 
 async function torrent(url) {
+  console.log('Starting API Fetch')
     //What to search
     var query;
     // Category to search
@@ -40,7 +41,7 @@ async function torrent(url) {
 
     var content = `<pre style="word-wrap: break-word; white-space: pre-wrap;">${json}</pre>`;
 
-    return content;
+    return json;
 }
 
 module.exports = { torrent };
