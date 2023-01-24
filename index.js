@@ -1,5 +1,6 @@
 const search = require('./api/search');
 const magnet = require('./seedbox/magnet');
+const portal = require('./seedbox/viewPortal');
 
 
 
@@ -20,7 +21,7 @@ app.use(cors({
 
 //const http = require('http');
 
-const hostname = '10.0.1.25';
+const hostname = '';
 const port = 3004;
 
 /*
@@ -45,6 +46,10 @@ app.post('/seedbox/', jsonParser, async (req, res) => {
 
 app.get('/csv/', async (req, res) => {
   res.send('poop')
+})
+
+app.get('/portal/', async (req, res) => {
+  res.send(portal.viewPortal(req.url))
 })
 
 
