@@ -30,6 +30,7 @@ const server = http.createServer( async (req, res) => {
   res.end(await App(req.url));
 });
 */
+global.__basedir = __dirname;
 
 app.get('/api/', async (req, res) => {
   //console.log(req);

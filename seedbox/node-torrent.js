@@ -2,7 +2,7 @@ var Client = require('node-torrent');
 var client = new Client({logLevel: 'DEBUG'});
 
 
-async function addTorrent(magnet) {
+async function npmaddTorrent(magnet) {
     var torrent = client.addTorrent(magnet);
  
     // when the torrent completes, move it's files to another area
@@ -18,4 +18,4 @@ async function addTorrent(magnet) {
 
 }
 
-module.exports = { addTorrent };
+module.exports = { npmaddTorrent };

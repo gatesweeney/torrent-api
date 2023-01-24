@@ -14,12 +14,15 @@
     "body-parser": "^1.20.1",
     "cors": "^2.8.5",
     "express": "^4.18.2",
+    "external-ip": "^2.3.1",
     "fs": "^0.0.1-security",
     "https": "^1.0.0",
     "jquery": "^3.6.3",
     "jsdom": "^21.0.0",
     "node-torrent": "^0.2.2",
-    "torrent-search-api": "^2.1.4"
+    "torrent-search-api": "^2.1.4",
+    "transmission": "^0.4.10",
+    "webtorrent": "^2.0.0"
   },
   "devDependencies": {
     "connect-livereload": "^0.6.1",
