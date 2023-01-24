@@ -6,42 +6,49 @@ TorrentSearchApi.enablePublicProviders();
 TorrentSearchApi.disableProvider('Torrent9');
 
 async function torrent(url) {
-  console.log('Starting API Fetch')
-    //What to search
-    var query;
-    // Category to search
-    var cat;
-    // Max number of listings
-    var limit;
 
-    try {
-      query = await params.getAllUrlParams(url).search;
-      cat = await params.getAllUrlParams(url).category;
-      limit = await params.getAllUrlParams(url).limit;
-    } catch (error) {
-      // Set defaults to prevent crashing
-      query = 'default';
-      cat = 'Movies';
-      limit = '1';
-    }
+  var remoteKey = params.getAllUrlParams(url).key;
+  
+  console.log(remoteKey, localKey);
+  if (remoteKey === localKey) {
 
-    // Convert and remove %20's, basically
-    query = decodeURI(query);
-    console.log(query);
+    console.log('Key Match. Starting API Fetch')
+      //What to search
+      var query;
+      // Category to search
+      var cat;
+      // Max number of listings
+      var limit;
 
-    var results;
-    
-    try {
-      results = await TorrentSearchApi.search(query, cat, limit);
-    } catch (error) {
-      results = [{title: 'failed'}]
-    }
+      try {
+        query = await params.getAllUrlParams(url).search;
+        cat = await params.getAllUrlParams(url).category;
+        limit = await params.getAllUrlParams(url).limit;
+      } catch (error) {
+        // Set defaults to prevent crashing
+        query = 'default';
+        cat = 'Movies';
+        limit = '1';
+      }
 
-    var json = JSON.stringify(results);
+      // Convert and remove %20's, basically
+      query = decodeURI(query);
+      console.log(query);
 
-    var content = `<pre style="word-wrap: break-word; white-space: pre-wrap;">${json}</pre>`;
+      var results;
+      
+      try {
+        results = await TorrentSearchApi.search(query, cat, limit);
+      } catch (error) {
+        results = [{title: 'failed'}]
+      }
 
-    return json;
+      var json = JSON.stringify(results);
+
+      var content = `<pre style="word-wrap: break-word; white-space: pre-wrap;">${json}</pre>`;
+
+      return json;
+  } else {return 'access denied'}
 }
 
 module.exports = { torrent };

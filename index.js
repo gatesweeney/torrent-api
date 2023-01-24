@@ -20,7 +20,7 @@ app.use(cors({
 
 //const http = require('http');
 
-const hostname = '127.0.0.1';
+const hostname = '10.0.1.25';
 const port = 3004;
 
 /*
@@ -31,6 +31,7 @@ const server = http.createServer( async (req, res) => {
 });
 */
 global.__basedir = __dirname;
+global.localKey = 'bhgs1hq17goxf8go4y9tl8n0y7upt1t438qwo43zkoxi0ge61acivf8gfl';
 
 app.get('/api/', async (req, res) => {
   //console.log(req);
@@ -49,4 +50,8 @@ app.get('/poop/', async (req, res) => {
 
 app.listen(port, hostname, async () => {
   console.log(`Server running at http://${hostname}:${port}/`);
+});
+
+app.listen(port, '127.0.0.1', async () => {
+  console.log(`Server running at http://127.0.0.1:${port}/`);
 });
