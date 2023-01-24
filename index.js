@@ -42,7 +42,7 @@ app.post('/seedbox/', jsonParser, async (req, res) => {
   res.send(await magnet.getMagnets(req.body))
 })
 
-app.get('/poop/', async (req, res) => {
+app.get('/csv/', async (req, res) => {
   res.send('poop')
 })
 

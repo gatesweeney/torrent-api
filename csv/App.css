@@ -1,0 +1,25 @@
+
+
+
+body {
+  padding: 5%;
+  font-family: Roboto;
+}
+
+
+#myProgress {
+  width: 100%;
+  background-color: grey;
+  max-width: 600px;
+}
+
+#myBar {
+  width: 0%;
+  height: 30px;
+  background-color: green;
+  transition: all 1s cubic-bezier(0.1, 0.26, 0.45, 0.94);
+}
+
+#submit {
+  display: none;
+}
