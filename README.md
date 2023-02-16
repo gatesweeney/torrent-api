@@ -1,5 +1,7 @@
 # torrent-api
 
+This project has been merged into https://github.com/gatesweeney/wingate-node
+
 Domain:Port
 http://localhost:3000/
 
